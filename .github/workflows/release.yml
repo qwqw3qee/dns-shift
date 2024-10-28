@@ -1,9 +1,8 @@
 name: build-go-binary
 
 on:
-  push:
-    tags:
-      - 'v*'  # 仅在符合 v* 格式的标签推送时触发
+  release:
+    types: [created, published] # 表示在创建新的 Release 时触发
 
 jobs:
   build-go-binary:
