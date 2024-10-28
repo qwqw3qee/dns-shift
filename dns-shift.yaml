@@ -1,0 +1,13 @@
+sourceDomain: "dash.cloudflare.com"
+targetDomain: "yourdomain.example"
+queryServer: "8.8.8.8:53"
+enablePingCheck: true
+enableSuccessCheck: true
+successCheckSecond: 10
+enableIPv6: true
+dnsServer:
+  provider: "huaweicloud"
+  apiParam:
+    ak: "your-ak"
+    sk: "your-sk"
+
