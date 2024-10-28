@@ -8,7 +8,7 @@
 ### 直接运行
 
 1. 从[Releases](https://github.com/qwqw3qee/dns-shift/releases)页面获取最新可执行程序。
-2. 编辑`dns-shift.yaml`，修改为你的域名与服务商接口信息，参考[配置文件参数说明](doc\配置文件参数说明.md) 。
+2. 编辑`dns-shift.yaml`，修改为你的域名与服务商接口信息，参考[配置文件参数说明](./doc/配置文件参数说明.md) 。
 3. `./dns-shift`运行。
 
 ### 定时执行（仅Linux）
@@ -56,7 +56,7 @@ go build -o dns-shift
 
 ### 添加更多API
 
-参考： [添加其它API开发说明](doc\添加其它API开发说明.md) 。
+参考： [添加其它API开发说明](./doc/添加其它API开发说明.md) 。
 
 ## 用到的开源项目
 

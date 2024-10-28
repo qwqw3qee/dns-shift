@@ -10,7 +10,7 @@ dnsServer:
     customKey2: "customValue2"
 ```
 
-2. 在`model/dnstype.go`中，添加你的API标识。
+2. 在[`model/dnstype.go`](../model/dnstype.go)中，添加你的API标识。
 
 ```go
 const (
@@ -19,7 +19,7 @@ const (
 )
 ```
 
-3. 在`api/`目录下，新建一个文件，名称任意，如`custom.go`，编写API的实现代码，并实现`api/interface.go`中的接口。
+3. 在`api/`目录下，新建一个文件，名称任意，如`custom.go`，编写API的实现代码，并实现[`api/interface.go`](../api/interface.go)中的接口。
 
 ```go
 package api
@@ -53,7 +53,7 @@ func NewCustomApi(params model.ConfigMap) DnsApi {
 
 ```
 
-4. 在`api/interface.go`中，找到`init()`函数，添加如下内容，注册你的API。
+4. 在[`api/interface.go`](../api/interface.go)中，找到`init()`函数，添加如下内容，注册你的API。
 
 ```go
 // 初始化注册各个 API 实现
@@ -64,5 +64,5 @@ func init() {
 }
 ```
 
-完成上述操作后，便可通过配置文件，调用新的API了。具体细节可参考`api/huaweicloud.go`。
+完成上述操作后，便可通过配置文件，调用新的API了。具体细节可参考[`api/huaweicloud.go`](../api/huaweicloud.go)。
 
