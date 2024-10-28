@@ -23,7 +23,7 @@ type HuaweiCloudApi struct {
 
 func NewHuaweiCloudApi(params model.ConfigMap) DnsApi {
 	api := &HuaweiCloudApi{params: params, targetDomain: "", zoneId: ""}
-	util.FatalErr("初始化HuaweiCloudAPI失败", api.InitClient())
+	util.FatalErr("初始化HuaweiCloudAPI失败，可能是ak/sk输入参数有误", api.InitClient())
 	return api
 }
 func (h *HuaweiCloudApi) InitClient() error {
@@ -37,15 +37,18 @@ func (h *HuaweiCloudApi) InitClient() error {
 		WithSk(sk).
 		SafeBuild()
 	if err != nil {
-		return err
+		return fmt.Errorf("generate auth err: %v", err)
 	}
-	regionVal, _ := region.SafeValueOf("cn-north-1")
+	regionVal, err := region.SafeValueOf("cn-north-1")
+	if err != nil {
+		return fmt.Errorf("get region val err: %v", err)
+	}
 	c, err := dns.DnsClientBuilder().
 		WithRegion(regionVal).
 		WithCredential(auth).
 		SafeBuild()
 	if err != nil {
-		return err
+		return fmt.Errorf("get client err: %v", err)
 	}
 	h.client = dns.NewDnsClient(c)
 	return nil

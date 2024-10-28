@@ -9,6 +9,7 @@
 
 1. 从[Releases](https://github.com/qwqw3qee/dns-shift/releases)页面获取最新可执行程序。
 2. 编辑`dns-shift.yaml`，修改为你的域名与服务商接口信息，参考[配置文件参数说明](./doc/配置文件参数说明.md) 。
+2. 设置可执行权限`chmod +x dns-shift`
 3. `./dns-shift`运行。
 
 ### 定时执行（仅Linux）
@@ -16,6 +17,7 @@
 **设置执行计划**
 
 ```bash
+chmod +x setup-cron.sh
 ./setup-cron.sh
 ```
 
