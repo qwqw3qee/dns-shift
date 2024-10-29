@@ -15,7 +15,7 @@ dnsServer:
 ```go
 const (
     // 新的API标识
-	Custom       DnsType = "custom"
+    Custom       DnsType = "custom"
 )
 ```
 
@@ -25,30 +25,30 @@ const (
 package api
 
 import (
-	"dns-shift/model"
-	"net"
+    "dns-shift/model"
+    "net"
 )
 
 // CustomApi 自定义Api的实现
 type CustomApi struct {
     // `dnsServer.apiParam`中的参数以map[string]interface{}的形式传入params变量中，以便在使用API时进行调用
-	params model.ConfigMap
-	// 可以将全局用到的变量均定义于此
+    params model.ConfigMap
+    // 可以将全局用到的变量均定义于此
 }
 
 // SetRecord 设置DNS解析记录主流程
 func (c *CustomApi) SetRecord(ipList []net.IP, targetDomain string, ipType model.IPType) error {
-	//TODO implement me
+    //TODO implement me
     customKey1 := c.params.GetString("customKey1")
-	customKey2 := c.params.GetString("customKey2")
+    customKey2 := c.params.GetString("customKey2")
     // 设置DNS记录主逻辑
-	return nil
+    return nil
 }
 
 // NewCustomApi 返回一个实现了DnsApi接口的对象，供RegisterApi()使用
 func NewCustomApi(params model.ConfigMap) DnsApi {
-	api := &CustomApi{params: params}
-	return api
+    api := &CustomApi{params: params}
+    return api
 }
 
 ```
@@ -58,9 +58,9 @@ func NewCustomApi(params model.ConfigMap) DnsApi {
 ```go
 // 初始化注册各个 API 实现
 func init() {
-	// ...
+    // ...
     // 添加CustomApi注册
-	RegisterApi(model.Custom, NewCustomApi)
+    RegisterApi(model.Custom, NewCustomApi)
 }
 ```
 
